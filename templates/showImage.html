@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+		<form class="center background" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+		    <h1>Professional Image Filter</h1>
+
+	 		<div class="center col-lg-6 col-sm-6 col-12">
+	            
+	            <div class="input-group">
+	                <label class="padding-bottom input-group-btn">
+	                    <span class="btn btn-default">
+	                        Browse <input class="display-none" style="display: none; " type="file" name="file" accept="image/*" multiple>
+	                    </span>
+	                </label>
+	                <input id="image-name" type="text" class="form-control" readonly>
+	            </div>
+
+	            <img src="{{filename}}" alt="uploaded picture">
+	        
+	            <div class="input-group">
+    				<span class="input-group-addon">Select filter</span>
+			        <select name="select-filter" class="form-control">
+			        	<option value="1">Black and white</option>
+			        	<option value="2">Beautify</option>
+			        	<option value="3">Other filter</option>
+	            	</select>
+        		</div>
+
+        	</div>
+
+			<br />
+		    <input class="btn btn-primary btn-file" type="submit" value="Submit image">
+
+		</form>
+
+		<script type="text/javascript">
+			$(function() {
+		    	$("input:file").change(function(){
+		    		var input = $(this);
+			        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+			        $("#image-name").val(label);
+			    });
+			});
+		</script>
+
+	</body>
+</html>

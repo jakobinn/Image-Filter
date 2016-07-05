@@ -1,0 +1,28 @@
+.center{
+    float: none;
+    margin: auto;
+    text-align: center;
+}
+
+.padding{
+	padding: 20px;
+}
+
+.padding-bottom{
+	padding-bottom: 20px;
+}
+
+.display-none{
+	display: none;
+}
+
+.margin-bottom{
+	margin-bottom: 10px;
+}
+
+.background {
+  width: 1000px;
+  height: 200px;
+  background-color: #FCFCFC;
+  border-radius: 30px;
+}
